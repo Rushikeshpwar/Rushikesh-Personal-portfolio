@@ -1,0 +1,46 @@
+export const skillCategories = [
+  {
+    id: 'frontend',
+    label: 'Frontend & UI Engineering',
+    description: 'Crafting responsive, high-performance, and pixel-perfect user interfaces.',
+    skills: [
+      'React.js (React 19)',
+      'JavaScript (ES6+)',
+      'Tailwind CSS',
+      'HTML5 & CSS3',
+      'Redux & Zustand',
+      'Framer Motion',
+      'Responsive Web Design',
+    ],
+  },
+  {
+    id: 'backend',
+    label: 'Backend, APIs & Security',
+    description: 'Building secure, real-time, and scalable business logic and web services.',
+    skills: [
+      'Node.js',
+      'Express.js',
+      'RESTful API Design',
+      'Socket.IO (Real-time)',
+      'JWT Authentication',
+      'RBAC (OpenFGA & ZITADEL)',
+      'Core Java & OOP',
+      'MVC Architecture',
+    ],
+  },
+  {
+    id: 'database-devops',
+    label: 'Databases & DevOps Tools',
+    description: 'Database schema modeling, containerization, version control, and API testing.',
+    skills: [
+      'MongoDB & Mongoose',
+      'MySQL',
+      'PostgreSQL',
+      'Docker Containers',
+      'Git & GitHub',
+      'Postman API Testing',
+      'Bitbucket & Jira',
+      'CI/CD Pipelines',
+    ],
+  },
+]

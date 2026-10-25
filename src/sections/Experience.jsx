@@ -1,0 +1,92 @@
+import { motion } from 'framer-motion'
+import { experience, education } from '../data/experience'
+import SectionHeading from '../components/SectionHeading'
+import { FiBriefcase, FiBookOpen, FiExternalLink } from 'react-icons/fi'
+
+export default function Experience() {
+  return (
+    <section id="experience" className="mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28">
+      <SectionHeading title="Experience & Education" />
+
+      <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
+        <div>
+          <h3 className="mb-4 sm:mb-6 flex items-center gap-2 font-display text-base sm:text-lg font-medium text-text">
+            <FiBriefcase className="text-accent" /> Professional Experience & Training
+          </h3>
+          <div className="space-y-4">
+            {experience.map((exp) => (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-2xl border border-white/5 bg-card/50 p-4 sm:p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h4 className="font-display text-lg sm:text-xl font-semibold text-text">{exp.role}</h4>
+                    <span className="font-mono text-xs text-accent">{exp.duration}</span>
+                  </div>
+                  <p className="mt-1 text-xs sm:text-sm text-text-muted">{exp.org}</p>
+                  <ul className="mt-3.5 sm:mt-4 space-y-2 sm:space-y-2.5">
+                    {exp.points.map((p, i) => (
+                      <li key={i} className="flex gap-2 text-xs sm:text-sm leading-relaxed text-text-muted">
+                        <span className="mt-1.5 sm:mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {exp.certificateUrl && (
+                  <div className="mt-4 pt-2">
+                    <a
+                      href={exp.certificateUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-accent/80 transition-colors"
+                    >
+                      View Experience Letter <FiExternalLink className="text-[10px]" />
+                    </a>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="mb-4 sm:mb-6 flex items-center gap-2 font-display text-base sm:text-lg font-medium text-text">
+            <FiBookOpen className="text-accent" /> Education
+          </h3>
+          <div className="space-y-4">
+            {education.map((edu) => (
+              <motion.div
+                key={edu.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="rounded-2xl border border-white/5 bg-card/50 p-4 sm:p-6"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h4 className="font-display text-lg sm:text-xl font-semibold text-text">{edu.degree}</h4>
+                  <span className="font-mono text-xs text-accent">{edu.duration}</span>
+                </div>
+                <p className="mt-1 text-xs sm:text-sm text-text-muted">{edu.school}</p>
+                {edu.description && (
+                  <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-relaxed text-text-muted/80">{edu.description}</p>
+                )}
+                <div className="mt-4">
+                  <span className="inline-block rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
+                    {edu.score}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
